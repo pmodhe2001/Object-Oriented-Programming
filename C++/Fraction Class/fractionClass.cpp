@@ -6,6 +6,7 @@ class Fraction{
           this->numerator=numerator;
           this->denominator=denominator;
        }
+       
 
        void print(){
            cout<<this->numerator<<" / "<<this->denominator<<endl;
