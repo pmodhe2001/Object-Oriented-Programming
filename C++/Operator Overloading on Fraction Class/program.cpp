@@ -28,7 +28,7 @@ class Fraction{
            this->denominator=denominator/gcd;
        }
 
-       Fraction add(Fraction f2){
+       Fraction add(Fraction const &f2)const{
           Fraction fNew(INT_MIN,INT_MIN);
           int lcm=denominator * f2.denominator;
           int x=lcm/denominator;
@@ -40,7 +40,7 @@ class Fraction{
           return fNew;
        } 
 
-       Fraction operator+(Fraction const &f2){
+       Fraction operator+(Fraction const &f2)const{
           Fraction fNew(INT_MIN,INT_MIN);
           int lcm=denominator * f2.denominator;
           int x=lcm/denominator;
@@ -52,7 +52,7 @@ class Fraction{
           return fNew;
        }    
 
-       Fraction multiplication(Fraction f2){
+       Fraction multiplication(Fraction const &f2)const{
           Fraction fNew(INT_MIN,INT_MIN);
           int num=numerator * f2.numerator;
           int den=denominator * f2.denominator;
@@ -62,7 +62,7 @@ class Fraction{
           return fNew;
        } 
 
-       Fraction operator*(Fraction f2){
+       Fraction operator*(Fraction const &f2)const{
           Fraction fNew(INT_MIN,INT_MIN);
           int num=numerator * f2.numerator;
           int den=denominator * f2.denominator;
@@ -70,7 +70,14 @@ class Fraction{
           fNew.denominator=den;
           fNew.simplify();
           return fNew;
-       }    
+       } 
+
+       bool operator==(Fraction const &f2)const{
+         if(numerator==f2.numerator && denominator==f2.denominator){
+            return true;
+         }
+         return false;
+       }   
 };
 
 int main(){
@@ -87,4 +94,7 @@ int main(){
     f3.multiplication(f4);
     f7.print();
     f8.print();
+    bool check1=(f1==f8);
+    bool check2=(f5==f6);
+    cout<<check1<<" "<<check2<<endl;
 }
