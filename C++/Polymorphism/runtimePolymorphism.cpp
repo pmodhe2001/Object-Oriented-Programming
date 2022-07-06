@@ -15,7 +15,7 @@ class Car:public Vehicle{
         virtual void print(){  // function  made virrtual
             cout<<"Car"<<endl;  
         }
-}
+};
 
 int main(){
     Vehicle v;
